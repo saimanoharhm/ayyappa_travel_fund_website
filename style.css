@@ -459,3 +459,47 @@ td.amount-cell {
     padding: 12px 7px;
   }
 }
+
+/* Fundraising Deadline */
+.deadline-label {
+  background: #fff7e6;
+  border: 1px solid #f0c36d;
+  border-radius: 12px;
+  padding: 18px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.deadline-title {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #8a4b08;
+}
+
+.deadline-date {
+  margin: 0 0 12px;
+  color: #654321;
+  font-size: 15px;
+}
+
+.countdown {
+  font-size: 22px;
+  font-weight: 700;
+  color: #b42318;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .deadline-label {
+    padding: 14px;
+  }
+
+  .deadline-title {
+    font-size: 18px;
+  }
+
+  .countdown {
+    font-size: 18px;
+  }
+}

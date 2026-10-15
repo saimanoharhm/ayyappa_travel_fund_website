@@ -102,6 +102,34 @@ function showMessage(message, isError = false) {
   formMessage.classList.toggle("error", isError);
 }
 
+function updateCountdown() {
+  // Deadline: 4 November 2026, 11:59:59 PM IST
+
+  const deadline = new Date("2026-11-04T00:00:00+05:30");
+
+  const now = new Date();
+  const remaining = deadline.getTime() - now.getTime();
+
+  const countdownElement = document.getElementById("countdown");
+
+  if (!countdownElement) return;
+
+  if (remaining <= 0) {
+    countdownElement.textContent = "⏰ Fundraising deadline has passed!";
+    return;
+  }
+
+  const days = Math.floor(remaining / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((remaining / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((remaining / (1000 * 60)) % 60);
+  const seconds = Math.floor((remaining / 1000) % 60);
+
+  countdownElement.textContent = `${days} days : ${hours} hours : ${minutes} minutes : ${seconds} seconds`;
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
 // 8. Render savings summary
 function renderSummary() {
   const total = deposits.reduce((sum, item) => sum + item.amount, 0);
