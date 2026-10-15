@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f7f8fa" />
+  <title>Ayyappa Travel Fund</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <header class="page-header">
+      <div class="eyebrow">SAVINGS TRACKER</div>
+      <h1>Ayyappa Travel Fund</h1>
+      <p class="subtitle">Every deposit brings the pilgrimage closer.</p>
+    </header>
+
+    <section class="goal-card" aria-labelledby="goal-title">
+      <div class="goal-top">
+        <div>
+          <p class="muted" id="goal-title">Travel expense target</p>
+          <div class="target-amount" id="targetAmount">₹15,000</div>
+        </div>
+        <div class="goal-icon" aria-hidden="true">🙏</div>
+      </div>
+      <div class="progress-labels">
+        <span id="progressText">0% completed</span>
+        <span id="remainingText">₹15,000 remaining</span>
+      </div>
+      <div class="progress-track" role="progressbar" aria-label="Savings progress"
+           aria-valuemin="0" aria-valuemax="15000" aria-valuenow="0" id="progressTrack">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <p class="goal-note" id="goalNote">Start by recording your first deposit.</p>
+    </section>
+
+    <section class="stats-grid" aria-label="Savings summary">
+      <article class="stat-card">
+        <p class="stat-label">Total deposited</p>
+        <p class="stat-value" id="totalDeposited">₹0</p>
+      </article>
+      <article class="stat-card">
+        <p class="stat-label">Amount remaining</p>
+        <p class="stat-value" id="amountRemaining">₹15,000</p>
+      </article>
+      <article class="stat-card">
+        <p class="stat-label">Deposit days</p>
+        <p class="stat-value" id="depositDays">0</p>
+      </article>
+    </section>
+
+    <section class="panel" aria-labelledby="deposit-heading">
+      <div class="section-heading">
+        <div>
+          <h2 id="deposit-heading">Record a deposit</h2>
+          <p class="section-description">Enter the amount your friend transferred to your account.</p>
+        </div>
+      </div>
+      <form id="depositForm">
+        <div class="form-grid">
+          <label class="field">
+            <span>Deposit amount (₹)</span>
+            <input id="depositAmount" name="amount" type="number" min="1" step="1"
+                   inputmode="decimal" placeholder="e.g. 500" required />
+          </label>
+          <label class="field">
+            <span>Deposit date</span>
+            <input id="depositDate" name="date" type="date" required />
+          </label>
+        </div>
+        <label class="field">
+          <span>Note <span class="optional">(optional)</span></span>
+          <input id="depositNote" name="note" type="text" maxlength="80"
+                 placeholder="e.g. Rapido earnings" />
+        </label>
+        <button type="submit" class="primary-button">+ Add deposit</button>
+        <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="panel history-panel" aria-labelledby="history-heading">
+      <div class="history-header">
+        <div>
+          <h2 id="history-heading">Deposit history</h2>
+          <p class="section-description">Your recorded deposits, newest first.</p>
+        </div>
+        <button type="button" class="text-button" id="clearHistory">Clear history</button>
+      </div>
+      <div id="emptyState" class="empty-state">
+        <div class="empty-symbol" aria-hidden="true">↗</div>
+        <p>No deposits recorded yet</p>
+        <span>Your first deposit will appear here.</span>
+      </div>
+      <div class="table-wrap" id="historyTableWrap" hidden>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Note</th>
+              <th scope="col" class="amount-cell">Amount</th>
+              <th scope="col"><span class="sr-only">Action</span></th>
+            </tr>
+          </thead>
+          <tbody id="historyBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Made for the journey to Sabarimala.</p>
+      <p>Records are saved only in this browser on this device.</p>
+    </footer>
+  </main>
+</body>
+</html>
